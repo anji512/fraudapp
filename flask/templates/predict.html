@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Fraud</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>FraudDetection</h2>
+    <a href="/">Home</a>
+</div>
+
+<div class="card">
+    <h2>Transaction Details</h2>
+
+    <form action="/submit" method="post">
+        <input type="number" name="step" placeholder="Step (Time Unit)" required>
+
+        <select name="type" required>
+            <option value="">Select Transaction Type</option>
+            <option>PAYMENT</option>
+            <option>TRANSFER</option>
+            <option>CASH_OUT</option>
+            <option>DEBIT</option>
+            <option>CASH_IN</option>
+        </select>
+
+        <input type="number" name="amount" placeholder="Transaction Amount" required>
+        <input type="number" name="oldbalanceOrg" placeholder="Old Balance (Sender)" required>
+        <input type="number" name="newbalanceOrig" placeholder="New Balance (Sender)" required>
+        <input type="number" name="oldbalanceDest" placeholder="Old Balance (Receiver)" required>
+        <input type="number" name="newbalanceDest" placeholder="New Balance (Receiver)" required>
+
+        <button type="submit" class="btn">Analyze Transaction</button>
+    </form>
+</div>
+
+</body>
+</html>

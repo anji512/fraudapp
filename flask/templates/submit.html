@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>FraudDetection</h2>
+    <a href="/predict">New Prediction</a>
+</div>
+
+<div class="result">
+    <h1>Transaction Result</h1>
+
+    {% if "Safe" in result %}
+        <div class="safe">{{ result }}</div>
+    {% else %}
+        <div class="fraud">{{ result }}</div>
+    {% endif %}
+
+    <br><br>
+    <a href="/predict" class="btn">Check Another Transaction</a>
+</div>
+
+</body>
+</html>
